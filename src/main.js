@@ -83,11 +83,12 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   // Get form elements
   const nameInput = this.querySelector('input[name="name"]');
   const emailInput = this.querySelector('input[name="email"]');
+  const subjectInput = this.querySelector('input[name="subject"]');
   const messageInput = this.querySelector('textarea[name="message"]');
   const submitButton = this.querySelector('button[type="submit"]');
   
   // Basic validation
-  if (!nameInput.value || !emailInput.value || !messageInput.value) {
+  if (!nameInput.value || !emailInput.value || !messageInput.value || !subjectInput.value) {
     showMessage('Please fill in all fields', 'error');
     return;
   }
@@ -107,6 +108,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   const templateParams = {
     from_name: nameInput.value,
     from_email: emailInput.value,
+    from_subject: subjectInput.value,
     message: messageInput.value,
     to_name: 'Reda Salem',
     reply_to: emailInput.value,
@@ -150,4 +152,42 @@ function showMessage(message, type) {
   
   // Remove message after 5 seconds
   setTimeout(() => messageDiv.remove(), 5000);
-}
+};
+
+
+// Custom Bootstrap validation
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})();
+
+
+//  لتفعيل الدوائر
+document.addEventListener('DOMContentLoaded', function() {
+  const skillLevels = document.querySelectorAll('.skill-level');
+
+  skillLevels.forEach(skillLevel => {
+    const level = skillLevel.dataset.level;
+
+    // تفعيل الحركة بشكل دوري كل 4 ثوانٍ
+    setInterval(() => {
+      skillLevel.style.setProperty('--data-level', level + '%');
+      skillLevel.setAttribute('data-level', level);
+    }, 2000); // تكرار كل2  ثوانٍ 
+  });
+});
