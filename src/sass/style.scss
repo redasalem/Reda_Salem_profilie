@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap';
+@import './timeLine.scss';
 
 body{
     font-family: 'Poppins', sans-serif;
@@ -367,6 +368,7 @@ body{
   border-radius: 1rem;
   box-shadow:10px 5px 20px #23bee1;
   text-align: center;
+  transition: all 0.4s ease;
   h3{
     font-size: 20px;
     font-weight: 600;
