@@ -1,4 +1,5 @@
-
+// Import the image
+import chatbotImage from '../assets/images/chatbot.png';
 //chatbot 
 class ChatBot {
   constructor() {
@@ -55,10 +56,10 @@ class ChatBot {
     messageDiv.classList.add('cb-chat-bot__message', `cb-chat-bot__message--${sender}`);
     
     if (sender === 'bot') {
-      messageDiv.innerHTML = `
-        <img src="./src/assets/images/chatbot.png" alt="Reda Bot" class="cb-chat-bot__avatar">
-        <p>${text}</p>
-      `;
+       messageDiv.innerHTML = `
+    <img src="${chatbotImage}" alt="Reda Bot" class="cb-chat-bot__avatar">
+    <p>${text}</p>
+  `;
     } else {
       messageDiv.innerHTML = `<p>${text}</p>`;
     }
