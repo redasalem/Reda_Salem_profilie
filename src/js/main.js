@@ -4,6 +4,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../sass/style.scss';
 import './chatbot';
+import { initLazyLoading } from '../js/lazeLoading';
 
 // change background color of navbar on scroll
  window.addEventListener('scroll', function() {
@@ -191,6 +192,30 @@ document.addEventListener('DOMContentLoaded', function() {
       skillLevel.setAttribute('data-level', level);
     }, 2000); // تكرار كل2  ثوانٍ 
   });
+});
+
+//loading screen
+document.addEventListener('DOMContentLoaded', () => {
+  // Hide loading screen after page loads
+  window.addEventListener('load', () => {
+    const loadingScreen = document.querySelector('.loading-screen');
+    setTimeout(() => {
+      loadingScreen.classList.add('fade-out');
+      // Enable scroll after loading
+      document.body.style.overflow = 'visible';
+    }, 2000); // 2 seconds delay
+  });
+
+  // Disable scroll while loading
+  document.body.style.overflow = 'hidden';
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize lazy loading
+  initLazyLoading();
+  
+  // ...rest of your initialization code...
 });
 
 
