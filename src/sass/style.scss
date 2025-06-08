@@ -1105,3 +1105,56 @@ img.lazy {
     margin-top: 180px;
   }
 }
+// تحسين الشات بوت للموبايل
+@media screen and (max-width: 350px) {
+  .cb-chat-bot {
+    &__box {
+      width: 220px; 
+      right: 10px; 
+      bottom: 80px;
+    }
+
+    &__messages {
+      max-height: 300px; // تقليل الارتفاع
+    }
+
+    &__input {
+      padding: 8px; // تقليل البادينج
+      display: flex;
+      gap: 5px;
+
+      input {
+        flex: 1;
+        min-width: 0; // منع تجاوز العرض
+        font-size: 14px; // تصغير حجم الخط
+      }
+
+      .cb-chat-bot__send {
+        padding: 8px 12px;
+        display: flex; // تأكيد إظهار الزر
+        align-items: center;
+        justify-content: center;
+        min-width: 40px; // تحديد حد أدنى للعرض
+        visibility: visible !important; // تأكيد الظهور
+        opacity: 1 !important;
+      }
+    }
+
+    &__welcome {
+      padding: 10px;
+      
+      img {
+        width: 40px; // تصغير الصورة
+        height: 40px;
+      }
+
+      p {
+        font-size: 13px; // تصغير حجم النص
+      }
+    }
+
+    &__header h3 {
+      font-size: 14px; // تصغير عنوان الشات
+    }
+  }
+}
